@@ -1,26 +1,15 @@
 import { useState } from "react";
-import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 import { Drawer, Box, Fab } from "@mui/material";
-import { grey } from "@mui/material/colors";
-import DrawerContent from "./ui/DrawerContent";
+import { red } from "@mui/material/colors";
+import DrawerContent from "../DrawerContent";
 import { MenuRounded } from "@mui/icons-material";
+import SidebarContainer from "../../containers/SidebarContainer";
 
 const Sidebar = ({ value, handleChange }) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
-  const handleDrawerToggle = () => {
-    setDrawerOpen(!drawerOpen);
-  };
-
   return (
-    <Grid2
-      xs={0}
-      sm={0}
-      md={3}
-      lg={2}
-      xl={2}
-      sx={{ backgroundColor: grey[900] }}
-    >
+    <>
       <Box
         sx={{
           display: {
@@ -33,11 +22,10 @@ const Sidebar = ({ value, handleChange }) => {
         }}
       >
         <Fab
-          color="primary"
           aria-label="Sidebar"
           size="small"
-          sx={{ m: 2 }}
-          onClick={handleDrawerToggle}
+          sx={{ m: 2, backgroundColor: red[500] }}
+          onClick={() => setDrawerOpen(true)}
         >
           <MenuRounded />
         </Fab>
@@ -59,9 +47,13 @@ const Sidebar = ({ value, handleChange }) => {
           },
         }}
       >
-        <DrawerContent value={value} handleChange={handleChange} />
+        <DrawerContent
+          value={value}
+          handleChange={handleChange}
+          setDrawerOpen={setDrawerOpen}
+        />
       </Drawer>
-    </Grid2>
+    </>
   );
 };
 

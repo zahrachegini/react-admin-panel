@@ -5,22 +5,13 @@ import {
   TextSnippetRounded,
   TerminalRounded,
   MessageRounded,
-  ConnectWithoutContactRounded,
-  FavoriteRounded,
-  CopyrightRounded,
+  ConnectWithoutContactRounded
 } from "@mui/icons-material";
-import {
-  Typography,
-  Avatar,
-  Divider,
-  Box,
-  Hidden,
-  Tabs,
-  Tab,
-} from "@mui/material";
+import { Divider, Box, Tabs, Tab } from "@mui/material";
 import { grey } from "@mui/material/colors";
+import SidebarHeader from "./sidebar/SidebarHeader";
 
-const DrawerContent = ({ value, handleChange }) => {
+const DrawerContent = ({ value, handleChange, setDrawerOpen }) => {
   const tabProps = (index) => {
     return {
       id: `sidebar-tab-${index}`,
@@ -30,31 +21,7 @@ const DrawerContent = ({ value, handleChange }) => {
 
   return (
     <Box sx={{ justifyContent: "center", textAlign: "center", mt: 2 }}>
-      <Avatar
-        src={require("../../assets/images/avatar.png")}
-        // src="./images.jpg"
-        sx={{
-          height: 150,
-          width: 150,
-          margin: "0 auto",
-          display: {
-            xl: "block",
-            lg: "block",
-            md: "block",
-            sm: "none",
-            xs: "none",
-          },
-        }}
-      >
-        ZC
-      </Avatar>
-      <Typography variant="h6" color="whitesmoke" sx={{ mt: 2, mb: 2 }}>
-        زهرا چگینی
-      </Typography>
-
-      <Typography variant="caption" color="whitesmoke">
-        توسعه دهنده فرانت
-      </Typography>
+      <SidebarHeader />
       <Divider variant="middle" color={grey[800]} sx={{ mt: 2 }} />
 
       <Tabs
@@ -69,41 +36,89 @@ const DrawerContent = ({ value, handleChange }) => {
           icon={<HomeRounded />}
           label="خانه"
           iconPosition="start"
+          sx={{
+            my: 0.5,
+            mx: 1,
+            backgroundColor: grey[800],
+            borderRadius: 2,
+            "&.MuiTab-root": { minHeight: 50 },
+          }}
+          onClick={() => setDrawerOpen(false)}
           {...tabProps(0)}
         ></Tab>
         <Tab
           icon={<FaceRounded />}
           label="درباره من"
           iconPosition="start"
+          sx={{
+            my: 0.5,
+            mx: 1,
+            backgroundColor: grey[800],
+            borderRadius: 2,
+            "&.MuiTab-root": { minHeight: 50 },
+          }}
+          onClick={() => setDrawerOpen(false)}
           {...tabProps(1)}
         ></Tab>
         <Tab
           icon={<TextSnippetRounded />}
           label="رزومه من"
           iconPosition="start"
+          sx={{
+            my: 0.5,
+            mx: 1,
+            backgroundColor: grey[800],
+            borderRadius: 2,
+            "&.MuiTab-root": { minHeight: 50 },
+          }}
+          onClick={() => setDrawerOpen(false)}
           {...tabProps(2)}
         ></Tab>
         <Tab
           icon={<TerminalRounded />}
           label="نمونه کارها"
           iconPosition="start"
+          sx={{
+            my: 0.5,
+            mx: 1,
+            backgroundColor: grey[800],
+            borderRadius: 2,
+            "&.MuiTab-root": { minHeight: 50 },
+          }}
+          onClick={() => setDrawerOpen(false)}
           {...tabProps(3)}
         ></Tab>
         <Tab
           icon={<MessageRounded />}
           label="نظرات"
           iconPosition="start"
+          sx={{
+            my: 0.5,
+            mx: 1,
+            backgroundColor: grey[800],
+            borderRadius: 2,
+            "&.MuiTab-root": { minHeight: 50 },
+          }}
+          onClick={() => setDrawerOpen(false)}
           {...tabProps(4)}
         ></Tab>
         <Tab
           icon={<ConnectWithoutContactRounded />}
           label="تماس با من"
           iconPosition="start"
+          sx={{
+            my: 0.5,
+            mx: 1,
+            backgroundColor: grey[800],
+            borderRadius: 2,
+            "&.MuiTab-root": { minHeight: 50 },
+          }}
+          onClick={() => setDrawerOpen(false)}
           {...tabProps(5)}
         ></Tab>
       </Tabs>
       <Divider variant="middle" color={grey[800]} sx={{ mt: 2 }} />
-      <Box
+      {/* <Box
         sx={{
           flexGrow: 1,
           display: "flex",
@@ -123,7 +138,7 @@ const DrawerContent = ({ value, handleChange }) => {
           کپی رایت 1401{""}{" "}
           <CopyrightRounded sx={{ verticalAlign: "middle", height: 16 }} />
         </Typography>
-      </Box>
+      </Box> */}
     </Box>
   );
 };
